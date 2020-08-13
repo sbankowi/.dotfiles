@@ -14,6 +14,17 @@ setopt histignorealldups sharehistory
 
 # vi!
 bindkey -v
+bindkey -M menuselect 'h' backward-char
+bindkey -M menuselect 'j' down-line-or-history
+bindkey -M menuselect 'k' up-line-or-history
+bindkey -M menuselect 'l' forward-char
+# insert, but accept further completions
+bindkey -M menuselect 'i' accept-and-menu-complete
+# insert, and show menu with further possible completions
+# useful for cd-ing into nested directories
+bindkey -M menuselect 'o' accept-and-infer-next-history
+# undo
+bindkey -M menuselect 'u' undo
 
 # Keep 2048 lines of history within the shell and save it to ~/.zsh_history:
 HISTSIZE=2048
@@ -30,7 +41,6 @@ zstyle ':completion:*' completer _expand _complete _correct _approximate
 zstyle ':completion:*' format 'Completing %d'
 zstyle ':completion:*' group-name ''
 zstyle ':completion:*' menu select=2
-#eval "$(dircolors -b)"
 zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
 zstyle ':completion:*' list-colors ''
 zstyle ':completion:*' list-prompt %SAt %p: Hit TAB for more, or the character to insert%s
@@ -39,6 +49,7 @@ zstyle ':completion:*' menu select=long
 zstyle ':completion:*' select-prompt %SScrolling active: current selection at %p%s
 zstyle ':completion:*' use-compctl false
 zstyle ':completion:*' verbose true
+zstyle ':completion::complete:*' gain-privileges 1
 
 zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b) #([0-9]#)*=0=01;31'
 zstyle ':completion:*:kill:*' command 'ps -u $USER -o pid,%cpu,tty,cputime,cmd'
@@ -51,13 +62,13 @@ alias ls='ls --color'
 alias grep='grep --color'
 
 # addons
-# auto-suggestions
-# https://github.com/zsh-users/zsh-autosuggestions
-source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
+# auto-suggestions - https://github.com/zsh-users/zsh-autosuggestions
+source $HOME/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=14"
 export ZSH_AUTOSUGGEST_STRATEGY=(history completion)
 export ZSH_AUTOSUGGEST_BUFFER_MAX_SIZE=24
 export ZSH_AUTOSUGGEST_USE_ASYNC=1
 bindkey '^ ' autosuggest-execute
 #
-
+# syntax-highlighting
+source $HOME/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
