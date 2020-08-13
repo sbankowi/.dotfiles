@@ -10,8 +10,6 @@ colorscheme solarized
 
 "set cursorline
 "set cursorcolumn
-"hi CursorLine   cterm=NONE ctermbg=237 ctermfg=NONE guibg=darkred guifg=white
-"hi CursorColumn cterm=NONE ctermbg=235 ctermfg=NONE guibg=darkred guifg=white
 
 set report=0	" Show all lines changed.
 set nomodeline	" Do not interpret modeline directives in files we open (more secure)
