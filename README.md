@@ -1,1 +1,1 @@
-# My "Dot Files" for both Windows and Unix/Linux.
+# My "Dot Files" for Unix/Linux.
