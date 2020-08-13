@@ -7,6 +7,7 @@ eval `dircolors ~/.dir_colors`
 autoload -Uz promptinit
 promptinit
 prompt="(%3c) %#%s "
+#prompt="[$(print '%{\e[1;31m%}%n%{\e[0m%}') @ %M](%3c) %#%s "
 #prompt adam1
 
 setopt histignorealldups sharehistory
@@ -14,10 +15,11 @@ setopt histignorealldups sharehistory
 # vi!
 bindkey -v
 
-# Keep 1000 lines of history within the shell and save it to ~/.zsh_history:
-HISTSIZE=1000
-SAVEHIST=1000
+# Keep 2048 lines of history within the shell and save it to ~/.zsh_history:
+HISTSIZE=2048
+SAVEHIST=2048
 HISTFILE=~/.zsh_history
+HISTIGNORE="(ls|[bf]g|exit|clear)"
 
 # Use modern completion system
 autoload -Uz compinit
@@ -40,6 +42,9 @@ zstyle ':completion:*' verbose true
 
 zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b) #([0-9]#)*=0=01;31'
 zstyle ':completion:*:kill:*' command 'ps -u $USER -o pid,%cpu,tty,cputime,cmd'
+
+# setopts
+
 
 # aliases
 alias ls='ls --color'
