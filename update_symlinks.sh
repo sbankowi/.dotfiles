@@ -20,6 +20,6 @@ done
 
 # Grab plugins and put in the $HOME directory itself
 #   TODO: automatically delete directory if it exists first
-git clone https://github.com/seebi/dircolors-solarized.git $HOME/.dircolors-solarized && ln -s $HOME/.dircolors-solarized $HOME/.dir_colors
+git clone https://github.com/seebi/dircolors-solarized.git $HOME/.dircolors-solarized && ln -s $HOME/.dircolors-solarized/dircolors.ansi-light $HOME/.dir_colors
 git clone https://github.com/zsh-users/zsh-autosuggestions $HOME/.zsh/zsh-autosuggestions
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git $HOME/.zsh/zsh-syntax-highlighting
